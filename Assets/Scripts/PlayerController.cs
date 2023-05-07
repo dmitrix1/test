@@ -11,29 +11,10 @@ public class PlayerController : MonoBehaviour
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
     }
-        void Update()
+
+    void Update()
     {
-        if (Input.GetKeyDown(KeyCode.W))
-        {
-            rb.velocity = new Vector2(0, speed);
-            transform.position = Vector3.left;
-            
-        }
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            rb.velocity = new Vector2(-speed, 0);
-            
-        }
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-            rb.velocity = new Vector2(0, -speed);
-            
-        }
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-            rb.velocity = new Vector2(speed, 0);
-            transform.position = Vector3.right;
-            
-        }
+        rb.velocity = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")) * speed;
+
     }
 }
