@@ -8,6 +8,7 @@ public class Platformer : MonoBehaviour
     private Rigidbody2D rb;
     public LayerMask ground;
     private PolygonCollider2D _PolygonCollider2D;
+    public float jumpSpeed;
 
     void Start()
     {
@@ -28,7 +29,7 @@ public class Platformer : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space) && _PolygonCollider2D.IsTouchingLayers(ground))
         {
-            rb.velocity = new Vector2(rb.velocity.x, speed);
+            rb.velocity = new Vector2(rb.velocity.x, jumpSpeed);
 
         }
         
